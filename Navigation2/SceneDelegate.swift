@@ -16,7 +16,47 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(windowScene: scene)
+        window?.makeKeyAndVisible()
+        
+        let tabBarController = UITabBarController()
+        
+        let feedVC = FeedViewController()
+        feedVC.view.backgroundColor = .white
+        feedVC.title = "Летна"
+        feedVC.tabBarItem = UITabBarItem(title: feedVC.title, image: UIImage(named: "tape.png"), tag: 0)
+        
+        let profileVC = ProfileViewController()
+        profileVC.view.backgroundColor = .lightGray
+        profileVC.title = "Профиль"
+        profileVC.tabBarItem = UITabBarItem(title: profileVC.title, image: UIImage(named: "profile.png"), tag: 1)
+        
+        let appearanceForNavBar = UINavigationBarAppearance()
+        appearanceForNavBar.configureWithOpaqueBackground()
+        appearanceForNavBar.backgroundColor = .white
+        
+        let appearanceForTabBar = UITabBarAppearance()
+        appearanceForTabBar.configureWithOpaqueBackground()
+        appearanceForTabBar.backgroundColor = .white
+        
+        let firstNavigationController = UINavigationController(rootViewController: feedVC)
+        firstNavigationController.navigationBar.topItem?.title = feedVC.title
+        firstNavigationController.navigationBar.standardAppearance = appearanceForNavBar
+        firstNavigationController.navigationBar.scrollEdgeAppearance = appearanceForNavBar
+        
+        let secondNavigationController = UINavigationController(rootViewController: profileVC)
+        secondNavigationController.navigationBar.topItem?.title = profileVC.title
+        secondNavigationController.navigationBar.standardAppearance = appearanceForNavBar
+        secondNavigationController.navigationBar.scrollEdgeAppearance = appearanceForNavBar
+        
+        tabBarController.tabBar.standardAppearance = appearanceForTabBar
+        tabBarController.tabBar.scrollEdgeAppearance = appearanceForTabBar
+        tabBarController.viewControllers = [firstNavigationController, secondNavigationController]
+        
+        window?.rootViewController = tabBarController
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
