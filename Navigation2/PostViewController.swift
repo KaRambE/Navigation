@@ -13,9 +13,6 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         let moreInfoBarButtonItem = UIBarButtonItem(title: "Подробности", style: .done, target: self, action: #selector(moreInfo))
             self.navigationItem.rightBarButtonItem  = moreInfoBarButtonItem
-        
-        
-        
     }
     
     @objc func moreInfo(){

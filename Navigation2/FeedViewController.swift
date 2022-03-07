@@ -12,7 +12,6 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let checkPost = UIButton()
         checkPost.setTitle("Проверить пост", for: .normal)
         checkPost.sizeToFit()
@@ -22,7 +21,6 @@ class FeedViewController: UIViewController {
         checkPost.setTitleColor(.white, for: .normal)
         checkPost.backgroundColor = .blue
         self.view.addSubview(checkPost)
-        
     }
     
     @objc func pressed() {

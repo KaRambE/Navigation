@@ -8,20 +8,22 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let label = UILabel()
-        label.text = "Hey"
-        label.textColor = .white
-        label.backgroundColor = .blue
-        label.sizeToFit()
+    
+    let profileViewHeader = ProfileHeaderView()
+    
+    override func viewWillLayoutSubviews() {
         
-        self.view.addSubview(label)
+        profileViewHeader.frame = self.view.frame
+        self.view.addSubview(profileViewHeader)
     }
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
 
+    
     /*
     // MARK: - Navigation
 

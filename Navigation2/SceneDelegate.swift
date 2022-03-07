@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         feedVC.tabBarItem = UITabBarItem(title: feedVC.title, image: UIImage(named: "tape.png"), tag: 0)
         
         let profileVC = ProfileViewController()
-        profileVC.view.backgroundColor = .green
+        profileVC.view.backgroundColor = .lightGray
         profileVC.title = "Профиль"
         profileVC.tabBarItem = UITabBarItem(title: profileVC.title, image: UIImage(named: "profile.png"), tag: 1)
         
